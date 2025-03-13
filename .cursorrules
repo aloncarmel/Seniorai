@@ -1,51 +1,170 @@
-1. **Verify Information**: Always verify information before presenting it. Do not make assumptions or speculate without clear evidence.
+# Cursor AI Coding Best Practices
 
-2. **File-by-File Changes**: Make changes file by file and give me a chance to spot mistakes.
+# ==========================================
+# GENERAL CODING STANDARDS
+# ==========================================
+enforce_style_guide: "airbnb"
+use_linter: "eslint"
+linter_config: "airbnb"
+use_formatter: "prettier"
+enforce_es_version: "es6+"
+variable_naming: 
+  - camelCase for variables and functions
+  - PascalCase for classes and React components
+enforce_modularity: true
+disallow_var: true
+prefer_const: true
+prefer_arrow_functions: true
+consistent_imports: true
 
-3. **No Apologies**: Never use apologies.
+# ==========================================
+# TEST-DRIVEN DEVELOPMENT (TDD)
+# ==========================================
+enforce_tdd: true
+tdd_principles: 
+  - "Write tests before writing the implementation"
+  - "Follow the red-green-refactor cycle"
+test_frameworks:
+  backend: "jest"
+  frontend: "jest, react-testing-library"
+require_tests_for_new_features: true
+require_tests_for_bugfixes: true
+test_coverage_threshold: 80
 
-4. **No Understanding Feedback**: Avoid giving feedback about understanding in comments or documentation.
+# ==========================================
+# GIT BEST PRACTICES
+# ==========================================
+enforce_git_branching_model: true
+branching_strategy:
+  - main for production
+  - develop for staging
+  - feature/* for new features
+  - bugfix/* for fixes
+require_pull_requests: true
+require_code_reviews: true
+minimum_approvals_for_merge: 1
+require_pull_request_description: true
+commit_message_convention: "Conventional Commits"
+disallow_auto_commits: true
+prohibit_commits_to_main: true
+require_linked_issues_in_pr: true
 
-5. **No Whitespace Suggestions**: Don't suggest whitespace changes.
+# ==========================================
+# UNIT TESTING AND MONITORING
+# ==========================================
+use_testing_framework:
+  - backend: "jest"
+  - frontend: "jest, react-testing-library"
+enforce_test_coverage: true
+monitoring_tool: "datadog"
+error_tracking_tool: "sentry"
+require_monitoring_integration: true
+log_unhandled_errors: true
+define_test_scenarios_for_edge_cases: true
+centralized_logging: true
+logging_tool: "winston"
+log_levels: ["info", "debug", "warn", "error"]
+prohibit_sensitive_data_in_logs: true
 
-6. **No Summaries**: Don't summarize changes made.
+# ==========================================
+# SECURITY BEST PRACTICES
+# ==========================================
+validate_user_input: true
+use_input_validation_library: "express-validator"
+sanitize_all_inputs: true
+disallow_eval: true
+use_parameterized_queries: true
+password_storage_method: "bcrypt"
+secure_http_headers: true
+security_headers_library: "helmet"
+enforce_https: true
+rate_limit_api_endpoints: true
+rate_limiting_library: "express-rate-limit"
+prohibit_secrets_in_code: true
+use_environment_variables_for_secrets: true
+require_dependency_audits: true
+use_dependency_scanning_tool: "npm audit"
+prohibit_exposing_sensitive_info_in_errors: true
+secure_cookies: true
 
-7. **No Inventions**: Don't invent changes other than what's explicitly requested.
+# ==========================================
+# DOCUMENTATION STANDARDS
+# ==========================================
+require_readme: true
+readme_must_include: ["project purpose", "setup instructions", "usage examples"]
+enforce_jsdoc_for_functions: true
+require_inline_comments_for_complex_logic: true
+prohibit_outdated_docs: true
+maintain_architecture_docs: true
+api_documentation_tool: "OpenAPI/Swagger"
+update_docs_with_code_changes: true
 
-8. **No Unnecessary Confirmations**: Don't ask for confirmation of information already provided in the context.
+# ==========================================
+# CI/CD INTEGRATION
+# ==========================================
+require_ci_pipeline: true
+ci_pipeline_tool: "github-actions"
+ci_must_include: ["linting", "unit tests", "build process"]
+fail_ci_on_test_failures: true
+automate_deployments_on_merge_to_main: true
+enforce_small_increments_in_cd: true
+require_pre_deploy_tests: true
+deployment_rollback_strategy: true
+deployment_protection_rules: true
+use_feature_flags_for_incomplete_features: true
+separate_staging_and_production_environments: true
+require_secret_management_in_ci: true
 
-9. **Preserve Existing Code**: Don't remove unrelated code or functionalities. Pay attention to preserving existing structures.
+# ==========================================
+# ERROR HANDLING
+# ==========================================
+handle_all_errors_gracefully: true
+require_try_catch_for_critical_operations: true
+centralize_error_handling: true
+log_stack_traces_for_errors: true
+use_react_error_boundaries: true
+send_generic_error_messages_in_production: true
 
-10. **Single Chunk Edits**: Provide all edits in a single chunk instead of multiple-step instructions or explanations for the same file.
+# ==========================================
+# PERFORMANCE & SCALABILITY
+# ==========================================
+avoid_blocking_event_loop: true
+optimize_react_rerenders: true
+use_caching_for_frequent_requests: true
+prefer_lazy_loading_for_heavy_assets: true
 
-11. **No Implementation Checks**: Don't ask the user to verify implementations that are visible in the provided context.
+# ==========================================
+# CODE REVIEWS
+# ==========================================
+mandatory_code_reviews: true
+check_code_quality_in_reviews: true
+check_for_security_issues_in_reviews: true
+require_tests_for_new_code_in_reviews: true
+use_pull_request_templates: true
+review_feedback_should_be_constructive: true
 
-12. **No Unnecessary Updates**: Don't suggest updates or changes to files when there are no actual modifications needed.
+# ==========================================
+# CONSISTENCY AND MAINTAINABILITY
+# ==========================================
+enforce_single_responsibility_principle: true
+organize_code_by_feature: true
+avoid_global_variables: true
+require_code_refactoring_with_major_changes: true
+document_any_major_code_changes: true
+discourage_code_duplication: true
+require_self_documenting_code: true
+prohibit_dead_code: true
+update_docs_with_major_refactors: true
 
-13. **Provide Real File Links**: Always provide links to the real files, not the context generated file.
-
-14. **No Current Implementation**: Don't show or discuss the current implementation unless specifically requested.
-
-15. **Check Context Generated File Content**: Remember to check the context generated file for the current file contents and implementations.
-
-16. **Use Explicit Variable Names**: Prefer descriptive, explicit variable names over short, ambiguous ones to enhance code readability.
-
-17. **Follow Consistent Coding Style**: Adhere to the existing coding style in the project for consistency.
-
-18. **Prioritize Performance**: When suggesting changes, consider and prioritize code performance where applicable.
-
-19. **Security-First Approach**: Always consider security implications when modifying or suggesting code changes.
-
-20. **Test Coverage**: Suggest or include appropriate unit tests for new or modified code.
-
-21. **Error Handling**: Implement robust error handling and logging where necessary.
-
-22. **Modular Design**: Encourage modular design principles to improve code maintainability and reusability.
-
-23. **Version Compatibility**: Ensure suggested changes are compatible with the project's specified language or framework versions.
-
-24. **Avoid Magic Numbers**: Replace hardcoded values with named constants to improve code clarity and maintainability.
-
-25. **Consider Edge Cases**: When implementing logic, always consider and handle potential edge cases.
-
-26. **Use Assertions**: Include assertions wherever possible to validate assumptions and catch potential errors early.
+# ==========================================
+# ADDITIONAL SENIORAI-INSPIRED RULES
+# ==========================================
+verify_information_before_changes: true
+no_apologies_in_code_or_docs: true
+no_unnecessary_confirmations: true
+preserve_existing_code_integrity: true
+no_whitespace_only_suggestions: true
+single_chunk_edits_per_file: true
+no_invented_changes: true
+no_summaries_in_code_changes: true
+no_implementation_checks_within_context: true
